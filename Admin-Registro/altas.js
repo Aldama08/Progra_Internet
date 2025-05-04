@@ -44,7 +44,7 @@ export default class Altas extends Component {
 
       const { data, error } = await supabase.storage
         .from('imagenes') // Asegúrate de que el bucket se llame así
-        .upload(foto_${Date.now()}.jpg, decode(image.base64), {
+        .upload(`imagenes//foto_${Date.now()}.jpg`, decode(image.base64), {
           contentType: 'image/jpeg',
         });
 
@@ -82,7 +82,7 @@ export default class Altas extends Component {
         .insert([{
           producto: producto,
           cantidad: cantidadNum,
-          descripcion: descripcion, // 🟢 Nombre correcto
+          descripcion: descripcion, 
           precio: precioNum,
           imagen: fileUrl
         }]);
